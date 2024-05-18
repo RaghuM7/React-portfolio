@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { SiKubernetes } from "react-icons/si";
 import { SiAnsible } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
@@ -6,23 +7,13 @@ import { FaNodeJs } from "react-icons/fa";
 import { DiDocker } from "react-icons/di";
 import { SiHelm } from "react-icons/si";
 import { BiLogoSpringBoot } from "react-icons/bi";
-import { FaReact } from "react-icons/fa";
 import { motion } from "framer-motion"; 
+import { RiReactjsLine } from 'react-icons/ri';
+import HoverIcon from './HoverIcon';
 
-const iconVariants = (duration) => ({
-  initial: { y: -10 },
-  animate: {
-    y: [10, -10],
-    transition: {
-      duration: duration,
-      ease: "linear",
-      repeat: Infinity,
-      repeatType: "reverse",
-    },
-  },
-});
 
 const Technologies = () => {
+
   return (
     <div className="border-b border-neutral-800 pb-24">
       <motion.h2
@@ -41,84 +32,17 @@ const Technologies = () => {
         transition={{ duration: 1.5 }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
-        <motion.div
-          variants={iconVariants(2.5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiKubernetes className="text-7xl text-cyan-400" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(2)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <DiDocker className="text-7xl text-blue-700" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(3)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiAnsible className="text-7xl" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiMysql className="text-7xl text-sky-500" />
-        </motion.div>
 
-        <motion.div
-          variants={iconVariants(2)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <BiLogoSpringBoot className="text-7xl text-green-700" />
-        </motion.div>
-
-        <motion.div
-          variants={iconVariants(2)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiAmazonaws className="text-7xl text-orange-700" />
-        </motion.div>
-
-        <motion.div
-          variants={iconVariants(6)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <FaNodeJs className="text-7xl text-green-500" />
-        </motion.div>
-
-        <motion.div
-          variants={iconVariants(6)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <FaReact className="text-7xl text-blue-500" />
-        </motion.div>
-
-
-        <motion.div
-          variants={iconVariants(4)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiHelm className="text-7xl text-sky-700" />
-        </motion.div>
+          <HoverIcon icon={<SiKubernetes className="text-7xl text-blue-400" />} text="Kubernetes" time={2.5} />
+          <HoverIcon icon={<DiDocker className="text-7xl text-sky-400" />} text="Docker" time={2} />
+          <HoverIcon icon={<SiAnsible className="text-7xl" />} text="Ansible" time={3} />
+          <HoverIcon icon={<SiMysql className="text-7xl text-sky-400" />} text="MySQL" time={5}/>
+          <HoverIcon icon={<BiLogoSpringBoot className="text-7xl text-green-400" />} text="Spring Boot" time={2} />
+          <HoverIcon icon={<SiAmazonaws className="text-7xl text-orange-400" />} text="AWS" time={2}/>
+          <HoverIcon icon={<FaNodeJs className="text-7xl text-green-400" />} text="JavaScript" time={6}/>
+          <HoverIcon icon={<RiReactjsLine className="text-7xl text-sky-400" />} text="ReactJS" time={6}/>
+          <HoverIcon icon={<SiHelm className="text-7xl text-sky-700" />} text="Helm" time={4}/>
+          
       </motion.div>
     </div>
   );
